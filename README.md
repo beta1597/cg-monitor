@@ -10,6 +10,29 @@ If CG-Monitor has been beneficial to you, please consider donating a little some
 BTC: 1JcBmddyvWUMoBM7exCq2NwLtmF8vyprAn<br>
 LTC: LhWGLVWquMnvbNErjZSmmfc4LEw9wF1aop<br>
 
+### Features
+
+<ul>
+  <li>Uses a php-client to send your data encrypted to your own online webserver</li>
+  <li>Mobile-friendly interface</li>
+  <li>Realtime information display (no refresh needed)</li>
+  <li>Multi algo miner switching</li>
+  <li>Support for multi algo switcher sgminer 4.0.1</li>
+  <li>Monitors detailed 48 hours statistics, and manages core functions of multiple rigs/ASICs</li>
+  <li>Detailed highcharts charts for farm, rig or device for Hash, WU, Temp, etc...</li>
+  <li>Switch pools remotely for all of your rigs at once</li>
+  <li>Autochange intensity based on Temperature and Fan Speed</li>
+  <li>Reboot the entire rig, not only the miner</li>
+  <li>Scheduled task planner (switch, reboot, resetstats)</li>
+  <li>Auto reboot rig on dead gpu</li>
+  <li>E-mail alert on dead gpu, temperture or wu error</li>
+  <li>Secure login system (javascript encrypted and sha3 hashing)</li>
+  <li>All commands are encrypted in the database</li>
+  <li>Auto sync pools (on reboot of rig or cgminer)</li>
+  <li>Auto update from server</li>
+  <li>Void of malware or donation mining</li>
+</ul>
+
 ### Requirements:
 
 - cgminer / sgminer properly configured with API write access allowed
