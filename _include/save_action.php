@@ -151,22 +151,25 @@
 		if($poolsnew[0]["rentpool"] == "yes"){
 			 $pooladdress 	 = $address_rent . $address_first . $address_backup;
 			 $command 		.= $command_first . $command_backup . $command_rent;
-			 $command 		.= "switchpool|1;sleep|1000000;removepool|0;poolpriority|";
-			 for($i2 = 0; $i2 < $i; $i2++){
-				 $command 	.= $i2 .",";
-			 };
+			 $command 		.= "switchpool|2;sleep|1000000;switchpool|1;sleep|1000000;removepool|0;";
+
 			 $command 		= substr($command, 0, -1); 
 		}else{
 			 $pooladdress 	 =  $address_first . $address_backup;
 			 $command 		.=  $command_backup . $command_first;
-			 $command 		.= "switchpool|".$i.";sleep|1000000;removepool|0";
+			 $command 		.= "switchpool|2;sleep|1000000;switchpool|1;sleep|1000000;switchpool|".$i.";sleep|1000000;removepool|0";
 		};
 	
 		$pooladdress 		= md5($pooladdress);
 		$sql2 				= "UPDATE `cgmonitor__rigs` set lastsyncpoolid = '".$pool."',lasthashpools = '".$pooladdress."' where id = '".$rig."';";
 		$rigs	 			= result($sql2);
 
-		$command_exec		= $command . ";poolpriority|0,1,2,3,4,5,6,7,8,9,10";
+		$command			= $command . ";poolpriority|";
+		for($i2 = 0; $i2 < $i; $i2++){
+			 $command 		.= $i2 .",";
+		};
+		$command_exec 		= substr($command, 0, -1); 
+		 
 		$command_read		= $automanual . " : Switch to pool " . $poolsnew[0]["name"];
 		$command_enc		= encryptCommand($command_exec,$privatekey);
 	
