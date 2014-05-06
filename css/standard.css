@@ -1,0 +1,173 @@
+
+body{
+	border:				0px;
+	padding:			0px;
+	margin:				0px;
+
+    font-size: 			12px;
+	text-align: 		center;
+	color:				#413738;
+	overflow-x: 		visible;
+	overflow-y: 		scroll;
+	background-color:	#858585;
+	background-image:	url("../images/bg.jpg");
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+td.dragHandle {
+	background-image: url(../images/updown2.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: move;
+	padding: 3px;
+}
+
+img	 {
+	border:				0px solid #AAAAAA;
+}
+
+@media all and (min-width: 625px) { 
+	h1 { 
+		float:left;
+	}
+	.totalfloat{
+		float:right;height:90px;width:220px;border:1px solid #DDDDDD;padding:5px;background-color:#F9F9F9;
+	}
+	.titlehome { 
+		margin-top:28px;
+
+	}
+
+	.tdtotal{
+		font-weight: bold;
+	}
+}
+@media all and (max-width: 625px) { 
+	h1 { 
+		float:none;
+	}
+
+	.titlehome { 
+		margin-top:0px;
+
+	}
+
+	.totalfloat{
+		float:none;
+		height:90px;
+		width:220px;
+		border:1px solid #DDDDDD;
+		padding:5px;
+		background-color:#F9F9F9;
+		margin-left:auto;
+		margin-right:auto;
+		margin-bottom:20px;
+	}
+}
+
+@media (min-width: 768px) {
+  .inhoud {
+    width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .inhoud {
+    width: 940px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .inhoud {
+    width: 1140px;
+  }
+}
+
+.content{
+	min-height:400px;
+	height:auto !important;
+	height:400px;
+
+	text-align: 		left;
+	z-index: 			0;
+
+}
+
+.contenttext{
+	min-height:400px;
+	height:auto !important;
+	height:400px;
+	background-color:	#ffffff;
+	padding-right:		10px;
+	padding-left:		10px;	
+	text-align: 		left;
+	z-index: 			0;
+}
+
+.contentlogin{
+	text-align: 		left;
+	z-index: 			0;
+
+}
+
+img	 {
+	border:0px solid #AAAAAA;
+}
+
+p,li	{
+	border-bottom:		0px;
+	border-left:		0px;
+	border-right:		0px;
+	padding:		0px;
+	margin:			0px;
+	font-size: 14px;
+	z-index:99;
+	line-height: 16px;
+}
+
+a:link{
+	color:				#4D4D4D;
+	text-decoration:none;
+	z-index:99;
+}
+
+a:visited{
+	color:				#4D4D4D;
+	text-decoration:none;
+	z-index:99;
+}
+
+a:hover{
+	color:				#C30350;
+	text-decoration:none;
+	z-index:99;
+}
+input[type=checkbox].css-checkbox {
+	position: absolute; 
+	overflow: hidden; 
+	clip: rect(0 0 0 0); 
+	height:1px; 
+	width:1px; 
+	margin:-1px; 
+	padding:0;
+	border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:20px;
+	height:17px; 
+	display:inline-block;
+	line-height:17px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+	cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 0 -17px;
+}
+					
+						  

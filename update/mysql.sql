@@ -1,0 +1,1 @@
+ALTER IGNORE TABLE `cgmonitor__algorithm`ADD `rentpool` VARCHAR(20);
