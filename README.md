@@ -13,24 +13,17 @@ LTC: LhWGLVWquMnvbNErjZSmmfc4LEw9wF1aop<br>
 ### Features
 
 <ul>
-  <li>Uses a php-client to send your data encrypted to your own online webserver</li>
-  <li>Mobile-friendly interface</li>
-  <li>Realtime information display (no refresh needed)</li>
-  <li>Multi algo miner switching</li>
-  <li>Support for multi algo switcher sgminer 4.0.1</li>
-  <li>Monitors detailed 48 hours statistics, and manages core functions of multiple rigs/ASICs</li>
-  <li>Detailed highcharts charts for farm, rig or device for Hash, WU, Temp, etc...</li>
-  <li>Switch pools remotely for all of your rigs at once</li>
-  <li>Autochange intensity based on Temperature and Fan Speed</li>
-  <li>Reboot the entire rig, not only the miner</li>
-  <li>Scheduled task planner (switch, reboot, resetstats)</li>
-  <li>Auto reboot rig on dead gpu</li>
-  <li>E-mail alert on dead gpu, temperture or wu error</li>
-  <li>Secure login system (javascript encrypted and sha3 hashing)</li>
-  <li>All commands are encrypted in the database</li>
-  <li>Auto sync pools (on reboot of rig or cgminer)</li>
-  <li>Auto update from server</li>
-  <li>Void of malware or donation mining</li>
+  <li>Intuitive, easy to read GUI using any web browser on a PC or Mac and also on iOS, Android and Windows smart phones and tablets.
+  <li>Support for Windows 7/8 and Linux mining rigs using CGMiner/SGMiner. ASICs are also supported.
+  <li>SGMiner multi-algorithm support. (SGMiner 4.0.1 and above)
+  <li>Real time detailed statistical information for each rig in your farm. Historical stats of up to 48 hours using detailed charts.
+  <li>Easy to use Pool Manager to quickly direct your rigs to the most profitable pools, remotely.
+  <li>Automatically change Intensity based on GPU temp and fan speed.
+  <li>Email alerts for dead/sick GPU’s, temperature and low WU.
+  <li>Integrated Task Scheduler to automatically switch pools, reboot rigs and reset stats.
+  <li>Automatically reboot rigs when a dead/sick GPU is detected. Rebooted rigs will automatically switch back to the pool it was      previously mining.
+  <li>Secure login system using JavaScript SHA Hashing. All commands are encrypted in the database.
+  <li>This software is Open Source and is free of Malware or any form of donation mining.
 </ul>
 
 ### Requirements:
