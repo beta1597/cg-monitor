@@ -65,6 +65,9 @@ Change the _config.php file with your database settings<br>
 Make sure you change the secret_passphrase (password and encryption is based on this key)<br>
 <br>
 Upload all the extracted files to your own webhosting (don’t extract install.zip).<br>
+When you don't have your own webhosting you can use this free webhosting (000webhost.com):<br/>
+https://github.com/beta1597/cg-monitor/blob/master/INSTALL_FREE_WEBHOST.md<br/>
+<br>
 Browse to <your-url>/install.php<br>
 Choose a username and a password (longer than 6 char)<br>
 
