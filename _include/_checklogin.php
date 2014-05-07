@@ -2,9 +2,9 @@
 	// get the token and look if it's the same as your server value
 
 	$token_post				= htmlentities($_POST['token']);
-	$token = getToken();
+	$token 					= getToken();
 			
-	if(!($token == $token_post)){
+	if(!(md5($token) == $token_post)){
 		header("Location:".$_SERVER['HTTP_REFERER']);
 		exit;
 	};
@@ -39,14 +39,14 @@
 			$sql = "SELECT * FROM `cgmonitor__settings` WHERE `name`  =  'user';";
 			$result = result($sql);
 
-			$usernameEncrypt 	=  hex2bin($_POST["usernameEncrypt"]);
-			$usernameEncrypt 	= string_decrypt($usernameEncrypt, $token_post);
+			$usernameEncrypt 	= hex2bin($_POST["usernameEncrypt"]);
+			$usernameEncrypt 	= string_decrypt($usernameEncrypt, $token);
 			
 			if($usernameEncrypt ==  $result[0]["value1"]){
 			
 				$passwordEncrypt 		= htmlentities($_POST['passwordEncrypt']);
 				$passwordEncrypt 		= hex2bin($passwordEncrypt);
-				$passwordEncrypt 		= string_decrypt($passwordEncrypt, $token_post);
+				$passwordEncrypt 		= string_decrypt($passwordEncrypt, $token);
 				$usernameEncrypt 		= $result[0]["value1"];
 				
 				$salt 					= $usernameEncrypt.$GLOBALS['secret_passphrase'];

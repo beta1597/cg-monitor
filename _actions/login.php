@@ -54,7 +54,7 @@
 			<form method="post" name="formlogin" id="formlogin">
 				<input type="hidden" name="usernameEncrypt" id="usernameEncrypt" value="">
 				<input type="hidden" name="passwordEncrypt" id="passwordEncrypt" value="">
-				<input type="hidden" name="token" id="token" value="<?php echo $token;?>" />
+				<input type="hidden" name="token" id="token" value="<?php echo md5($token);?>" />
 				<input name="action" type="hidden" value="login">
 <?php
 if($resetsettings){
@@ -113,8 +113,8 @@ if($resetsettings){
 						usernameEncrypt = usernameEncrypt.toString(CryptoJS.enc.Base64);
 						passwordEncrypt = passwordEncrypt.toString(CryptoJS.enc.Base64);
 						
-						usernameEncrypt = toHex(mcrypt.Encrypt(usernameEncrypt, '', $('#token').val(), 'rijndael-256', 'ecb'));
-						passwordEncrypt = toHex(mcrypt.Encrypt(passwordEncrypt, '', $('#token').val(), 'rijndael-256', 'ecb'));
+						usernameEncrypt = toHex(mcrypt.Encrypt(usernameEncrypt, '', '<?php echo $token;?>', 'rijndael-256', 'ecb'));
+						passwordEncrypt = toHex(mcrypt.Encrypt(passwordEncrypt, '', '<?php echo $token;?>', 'rijndael-256', 'ecb'));
 											
 						$('#usernameEncrypt').val(usernameEncrypt);
 						$('#passwordEncrypt').val(passwordEncrypt);
