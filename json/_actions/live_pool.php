@@ -111,9 +111,19 @@ if($pool_number == 2){
 	$data 	= json_decode($html,TRUE);
 	$value 	= $data["btcmh"];
 }else if($pool_number == 8){
-	/*
-	CoinFu		--> not easy but possible
-	*/
+
+	$url 	= "http://coinfu.io/profitability/24/hourly";
+	$html 	= file_get_contents_curl($url);
+	$data 	= json_decode($html,TRUE);
+
+	$total_btc = 0;
+	$total_mh_s = 0;
+	foreach($data as $data_det){
+		$total_btc  = $total_btc  + $data_det["btc"];
+		$total_mh_s	= $total_mh_s + $data_det["mh_s"];
+	};
+	$value = $total_btc * 86400 * 1.02 / $total_mh_s;
+
 }else if($pool_number == 9){
 	$url 	= "http://api.multipool.us/api.php";
 	$html 	= file_get_contents_curl($url);
