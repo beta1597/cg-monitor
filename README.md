@@ -54,6 +54,7 @@ After this actions the server will reset the private key to nothing for security
 ### How can you contact me?
 
 - irc channel #cg-monitor on irc.freenode.net (my username is beta1597)
+- webchat http://cg-monitor.com/irc/
 - e-mail beta1597@outlook.com
 
 ---
