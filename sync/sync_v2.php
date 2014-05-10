@@ -162,7 +162,7 @@
 		
 		$data = json_decode($data,true);
 		
-		$devs_fields 	= array('Enabled','Status','Temperature','Fan Speed','Fan Percent','GPU Clock','Memory Clock','GPU Voltage','GPU Activity','Powertune','MHS av','MHS 1s','Accepted','Rejected','Hardware Errors','Utility','Intensity','Total MH','Diff1 Work','Difficulty Accepted','Difficulty Rejected','Last Share Difficulty','Last Valid Work','Device Hardware%','Device Rejected%','WUs','Elapsed','Last Share Pool');
+		$devs_fields 	= array('Enabled','Status','Temperature','Fan Speed','Fan Percent','GPU Clock','Memory Clock','GPU Voltage','GPU Activity','Powertune','MHS av','MHS 1s','Accepted','Rejected','Hardware Errors','Utility','Intensity','Total MH','Diff1 Work','Difficulty Accepted','Difficulty Rejected','Last Share Difficulty','Last Valid Work','Device Hardware%','Device Rejected%','WUs','Elapsed','Last Share Time','Last Share Pool');
 		$pool_fields 	= array('POOL','URL','Status','Priority','User');
 			
 		$DEVS_UN	= $data["devs"];
