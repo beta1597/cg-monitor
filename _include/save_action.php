@@ -37,11 +37,11 @@
 			$res_algo			= result($sql_algo);
 
 			if($os=="windows"){
-				$command_exec = "quit;sleep|3000000;algochange|windows|".$res_algo[0]["number"].";sleep|10000000";
+				$command_exec = "quit§sleep|3000000§algochange|windows|".$res_algo[0]["number"]."§sleep|10000000§";
 			}else if($os=="linux2"){
-				$command_exec = "quit;sleep|3000000;algochange|linux|".$res_algo[0]["number"].";sleep|10000000";
+				$command_exec = "quit§sleep|3000000§algochange|linux|".$res_algo[0]["number"]."§sleep|10000000§";
 			}else{
-				$command_exec = "algochange|linux|".$res_algo[0]["number"].";sleep|10000000";
+				$command_exec = "algochange|linux|".$res_algo[0]["number"]."§sleep|10000000§";
 			};
 			
 		$command_read	= $automanual . " Algochange to " . $res_algo[0]["name"];
@@ -64,9 +64,15 @@
 		$sql2 				= "SELECT cgmonitor__pools.*,cgmonitor__pools.name as name,cgmonitor__algorithm.id as number,cgmonitor__algorithm.name as algoname,cgmonitor__algorithm.multiname as algomultiname,cgmonitor__algorithm.rentpool as rentpool FROM `cgmonitor__pools` JOIN cgmonitor__algorithm ON cgmonitor__pools.idalgorithms =cgmonitor__algorithm.id where cgmonitor__pools.id = '".$pool."';";
 		$poolsnew 			= result($sql2);
 		$numbernew 			= $poolsnew[0]["number"];
-
-		if($multialgominer == "yes") $numbernew = 1;
+		$rentpool 			= $poolsnew[0]["rentpool"];
 		
+		if($multialgominer == "yes"){
+			$sql2 				= "SELECT cgmonitor__algorithm.id as number,cgmonitor__algorithm.name as algoname,cgmonitor__algorithm.multiname as algomultiname,cgmonitor__algorithm.rentpool as rentpool FROM cgmonitor__algorithm where cgmonitor__algorithm.id = '1';";
+			$poolsmulti			= result($sql2);
+			$numbernew 			= $poolsmulti[0]["number"];
+			$rentpool 			= $poolsmulti[0]["rentpool"];
+		};
+
 		$sql2 				= "SELECT cgmonitor__pools.*,cgmonitor__pools.name as name,cgmonitor__algorithm.name as algoname,cgmonitor__algorithm.multiname as algomultiname FROM `cgmonitor__pools` JOIN cgmonitor__groupsvspools ON cgmonitor__pools.id =cgmonitor__groupsvspools.idpools JOIN cgmonitor__algorithm ON cgmonitor__pools.idalgorithms =cgmonitor__algorithm.id where cgmonitor__groupsvspools.idgroups = '".$numbernew."' order by cgmonitor__groupsvspools.sortorder;";
 		$poolsbackup		= result($sql2);
 
@@ -80,7 +86,7 @@
 		};
 
 		
-		$command = "removepool|0;sleep|100000;removepool|0;sleep|100000;removepool|0;sleep|100000;removepool|0;sleep|100000;removepool|0;sleep|100000;removepool|0;switchpool|0;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;switchpool|0;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;removepool|1;sleep|100000;";
+		$command = "removepool|0§sleep|100000§removepool|0§sleep|100000§removepool|0§sleep|100000§removepool|0§sleep|100000§removepool|0§sleep|100000§removepool|0§switchpool|0§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§switchpool|0§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§removepool|1§sleep|100000§";
 
 		$i = 0;
 		foreach($poolsnew as $result_det){
@@ -97,9 +103,9 @@
 			
 			$pools[$i]["address"] 	= urldecode($result_det["address"]);
 			if($multialgominer != "yes"){
-				$pools[$i]["command"] 	= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"]).";sleep|1000000;";
+				$pools[$i]["command"] 	= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"])."§sleep|1000000§";
 			}else{
-				$pools[$i]["command"] 	= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"]).",".urldecode($result_det["name"]).",".urldecode($result_det["name"]).",".strtolower(urldecode($result_det["algomultiname"])).";sleep|1000000;";
+				$pools[$i]["command"] 	= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"]).",".urldecode($result_det["name"]).",".urldecode($result_det["name"]).",".strtolower(urldecode($result_det["algomultiname"]))."§sleep|1000000§";
 			};
 			$i++;
 		};
@@ -120,16 +126,16 @@
 				
 				$pools[$i]["address"] 		= urldecode($result_det["address"]);
 				if($multialgominer != "yes"){
-					$pools[$i]["command"] 		= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"]).";sleep|1000000;";
+					$pools[$i]["command"] 		= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"])."§sleep|1000000§";
 				}else{
-					$pools[$i]["command"] 		= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"]).",".urldecode($result_det["name"]).",".urldecode($result_det["name"]).",".strtolower(urldecode($result_det["algomultiname"])).";sleep|1000000;";
+					$pools[$i]["command"] 		= "addpool|".urldecode($result_det["address"]).",".$worker_set.",".urldecode($result_det["password"]).",".urldecode($result_det["name"]).",".urldecode($result_det["name"]).",".strtolower(urldecode($result_det["algomultiname"]))."§sleep|1000000§";
 				};
 				$i++;
 			};
 		};
 	
 		$start = 1;
-		if($poolsnew[0]["rentpool"] == "yes") $start = 2;
+		if($rentpool == "yes") $start = 2;
 
 		$address_backup = "";
 		$command_backup = "";
@@ -143,28 +149,26 @@
 		$address_rent	= "";
 		$command_rent 	= "";
 		
-		if($poolsnew[0]["rentpool"] == "yes"){
+		if($rentpool == "yes"){
 			$address_rent	= $pools[1]["address"];
 			$command_rent 	= $pools[1]["command"];
 		}
 	
-		if($poolsnew[0]["rentpool"] == "yes"){
+		if($rentpool == "yes"){
 			 $pooladdress 	 = $address_rent . $address_first . $address_backup;
 			 $command 		.= $command_first . $command_backup . $command_rent;
-			 $command 		.= "switchpool|2;sleep|1000000;switchpool|1;sleep|1000000;removepool|0;";
-
-			 $command 		= substr($command, 0, -1); 
+			 $command 		.= "switchpool|2§sleep|1000000§switchpool|1§sleep|1000000§removepool|0§sleep|1000000§";
 		}else{
 			 $pooladdress 	 =  $address_first . $address_backup;
 			 $command 		.=  $command_backup . $command_first;
-			 $command 		.= "switchpool|2;sleep|1000000;switchpool|1;sleep|1000000;switchpool|".$i.";sleep|1000000;removepool|0";
+			 $command 		.= "switchpool|2§sleep|1000000§switchpool|1§sleep|1000000§switchpool|".$i."§sleep|1000000§removepool|0§sleep|1000000§";
 		};
 	
 		$pooladdress 		= md5($pooladdress);
 		$sql2 				= "UPDATE `cgmonitor__rigs` set lastsyncpoolid = '".$pool."',lasthashpools = '".$pooladdress."' where id = '".$rig."';";
 		$rigs	 			= result($sql2);
 
-		$command			= $command . ";poolpriority|";
+		$command			= $command . "poolpriority|";
 		for($i2 = 0; $i2 < $i; $i2++){
 			 $command 		.= $i2 .",";
 		};
@@ -172,7 +176,7 @@
 		 
 		$command_read		= $automanual . " : Switch to pool " . $poolsnew[0]["name"];
 		$command_enc		= encryptCommand($command_exec,$privatekey);
-	
+
 	};
 
 	
