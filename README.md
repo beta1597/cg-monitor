@@ -135,8 +135,14 @@ Download http://cg-monitor.com/update/update.zip and unzip to your webhosting.<b
 
 **A.** When your first pool is dead cg-monitor will automatic switch to your backup pool.  So you need to add a backup pool for every algorithm.
 
+
 ---
 
+**Q. How can i reset my password?**
+
+**A.** You need to update the "value1" colomn of the row "user" in the "cgmonitor__settings" table with your own secret_passphrase (in the _config.php file), then the system will ask you back for a new user and a new password.
+
+---
 ### Our Donation Addresses:
 
 **Bitcoin**<br>
