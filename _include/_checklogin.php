@@ -24,7 +24,13 @@
 			// if the user wants a new username and password get it, secure the password with an encryption and put in the table
 
 			$passwordEncrypt 		= htmlentities($_POST['passwordEncrypt']);
+			$passwordEncrypt 		= hex2bin($passwordEncrypt);
+			$passwordEncrypt 		= string_decrypt($passwordEncrypt, $token);
+
 			$usernameEncrypt 		= htmlentities($_POST['usernameEncrypt']);
+			$usernameEncrypt 		= hex2bin($_POST["usernameEncrypt"]);
+			$usernameEncrypt 		= string_decrypt($usernameEncrypt, $token);
+
 			$salt 					= $usernameEncrypt.$GLOBALS['secret_passphrase'];
 			$cryptastic 			= new cryptastic;
 			$passwordEncrypt 		= base64_encode($cryptastic->pbkdf2($passwordEncrypt, $salt, 1000, 32));
