@@ -376,3 +376,20 @@ function string_decrypt($encrypted_string, $key) {
     $decrypted_text = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, $encrypted_string, MCRYPT_MODE_ECB);
     return trim($decrypted_text);
 }
+
+define('HEX2BIN_WS', " \t\n\r");
+ 
+function hex2bin_php($hex_string) {
+    $pos = 0;
+	$result = '';
+	while ($pos < strlen($hex_string)) {
+	  if (strpos(HEX2BIN_WS, $hex_string{$pos}) !== FALSE) {
+	    $pos++;
+	  } else {
+	    $code = hexdec(substr($hex_string, $pos, 2));
+		$pos = $pos + 2;
+	    $result .= chr($code); 
+	  }
+	}
+	return $result;
+}

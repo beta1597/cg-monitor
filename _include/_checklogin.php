@@ -24,11 +24,11 @@
 			// if the user wants a new username and password get it, secure the password with an encryption and put in the table
 
 			$passwordEncrypt 		= htmlentities($_POST['passwordEncrypt']);
-			$passwordEncrypt 		= hex2bin($passwordEncrypt);
+			$passwordEncrypt 		= hex2bin_php($passwordEncrypt);
 			$passwordEncrypt 		= string_decrypt($passwordEncrypt, $token);
 
 			$usernameEncrypt 		= htmlentities($_POST['usernameEncrypt']);
-			$usernameEncrypt 		= hex2bin($_POST["usernameEncrypt"]);
+			$usernameEncrypt 		= hex2bin_php($_POST["usernameEncrypt"]);
 			$usernameEncrypt 		= string_decrypt($usernameEncrypt, $token);
 
 			$salt 					= $usernameEncrypt.$GLOBALS['secret_passphrase'];
@@ -45,13 +45,13 @@
 			$sql = "SELECT * FROM `cgmonitor__settings` WHERE `name`  =  'user';";
 			$result = result($sql);
 
-			$usernameEncrypt 	= hex2bin($_POST["usernameEncrypt"]);
+			$usernameEncrypt 	= hex2bin_php($_POST["usernameEncrypt"]);
 			$usernameEncrypt 	= string_decrypt($usernameEncrypt, $token);
 			
 			if($usernameEncrypt ==  $result[0]["value1"]){
 			
 				$passwordEncrypt 		= htmlentities($_POST['passwordEncrypt']);
-				$passwordEncrypt 		= hex2bin($passwordEncrypt);
+				$passwordEncrypt 		= hex2bin_php($passwordEncrypt);
 				$passwordEncrypt 		= string_decrypt($passwordEncrypt, $token);
 				$usernameEncrypt 		= $result[0]["value1"];
 				
