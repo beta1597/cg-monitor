@@ -58,7 +58,7 @@ After this actions the server will reset the private key to nothing for security
 ---
 ### Installation webhost:
 
-Download http://cg-monitor.com/download/cg-monitor.zip<br>
+Download https://mega.nz/#!ER8jQCgJ!b8iMosrqFugDdHU4fgjNODP4cALMK2bYir3JglSVnDk<br>
 Extract all files to your own computer<br>
 Change the _config.php file with your database settings<br>
 Make sure you change the secret_passphrase (password and encryption is based on this key)<br>
@@ -82,16 +82,6 @@ Installation files for linux (all linux version's) and windows available.<br>
 You need to change all the files in the “com-linux” or “com-windows” directory to your own cgminer or reboot commands.  Because otherwise the commands will not work.<br>
 
 ---
-### Upgrading:
-
-Upgrading is easy.<br>
-<br>
-Just push go to the update menu and push the update button, you can also choose to auto update on login.<br>
-<br>
-or<br>
-<br>
-Download http://cg-monitor.com/update/update.zip and unzip to your webhosting.<br>
-<br>
 
 <a name="faq"></a>
 
